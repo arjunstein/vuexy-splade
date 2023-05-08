@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\AboutController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\TestController;
 use App\Http\Controllers\ProfileController;
@@ -37,9 +38,10 @@ Route::middleware('splade')->group(function () {
     Route::name('backend.')->prefix('backend')->group(function () {
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::get('/test', function () {
-            return view('backend.layouts.test');
-        })->name('test');
+        // Route::get('/test', function () {
+        //     return view('backend.layouts.test');
+        // })->name('test');
+        Route::get('/about', [AboutController::class,'index'])->name('about');
     });
 
     Route::middleware('auth')->group(function () {
